@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+	</head>
+	<body style="position: fixed">
+		<div id="app">
+			<div onmousedown='overwolf.windows.dragMove("MainWindow")' style="
+				overflow: hidden;
+				position: relative;
+				width: 700px;
+				height: 410px;
+				box-shadow: 0 10px 25px 0 rgba(0,0,0,0.5);
+				background-color: #1c1c1e;
+				color: white;
+				user-select: none;
+				font-family: 'Barlow Semi Condensed', sans-serif;
+			">
+				<div id="stripeBox" style="
+					display: flex;
+					width: 100%;
+					height: 24px;
+					background-color: #29292b;
+					border-bottom: 1px solid #a7a3a3;
+				">
+					<div id="stripeLogo" style="
+						width: 70%;
+						height: 100%;
+						margin-top: -81px;
+						margin-left: -170px;
+					">
+						<img src="gamescout.svg" style="
+							transform: scale(0.2);
+						"/>
+					</div>
+
+					<div onclick='overwolf.windows.minimize("MainWindow")' id="stripeMinimize" style="
+						width: 30%;
+						height: 100%;
+						text-align: right;
+						font-weight: bold;
+						font-size: 25px;
+						margin-left: 130px;
+						margin-top: -8px;
+						cursor: pointer;
+					">
+						_
+					</div>
+				</div>
+
+				<div id="logoBox" style="
+					width: 700px;
+					height: 268.328px;
+					margin-top: -30px;
+					display: flex;
+					align-items: center;
+				">
+					<img src="landscape.svg" style="
+						display: block;
+						margin-left: auto;
+						margin-right: auto;
+						width: 280px;
+					"/>
+				</div>
+
+				<div id="loaderBox" style="
+					width: 100%;
+					margin-top: -40px;
+				">
+					<div id="loaderInfo" style="
+						width: 500px;
+						margin-left: auto;
+						margin-right: auto;
+						margin-bottom: 5px;
+						display: flex;
+					">
+						<div id="infoLeft" style="
+							width: 50%;
+							text-align: left;
+						">Loading CHANGEME APP NAME</div>
+						<div id="infoRight" style="
+							width: 50%;
+							text-align: right;
+							visibility: hidden;
+						">0/0</div>
+					</div>
+
+					<div id="loader" style="
+						max-width: 500px;
+						border: 1px solid white;
+						height: 25px;
+						margin-left: auto;
+						margin-right: auto;
+					">
+						<div id="progressBar" style="
+							height: 100%;
+							background: linear-gradient(90deg, #f9ed32 0%, #c3a700 100%);
+							width: 0%;
+						"></div>
+
+						<div id="progressText" style="
+							text-align: center;
+							left: 50%;
+							margin-top: -22.5px;
+						">0%</div>
+					</div>
+				</div>
+
+				<div id="messageBox" style="
+					width: 100%;
+					text-align: center;
+					font-size: 13px;
+					margin-top: 100px;
+				">FOLLOW US ON TWITTER FOR APP UPDATES AND GIVEAWAY <a href="https://twitter.com/gamescoutgg" style="text-decoration: underline; color: white">@GAMESCOUTGG</a></div>
+			</div>
+		</div>
+		<script src="/bootstrapper.js"></script>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+git branch --merged | egrep -v "(^\*|master|production|staging)" | xargs git branch -d

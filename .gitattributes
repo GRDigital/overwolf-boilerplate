@@ -1,0 +1,20 @@
+* text eol=lf
+
+*.jpg -text
+*.jpeg -text
+*.png -text
+*.gif -text
+*.tga -text
+*.svg -text
+*.ico -text
+*.ttf -text
+*.zip -text
+*.eot -text
+*.woff -text
+*.woff2 -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.pfx -text
+*.crt -text
+*.exe -text
+/tools/*-windows.exe -text
+/tools/*-linux -text

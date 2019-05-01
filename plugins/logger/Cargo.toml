@@ -1,0 +1,26 @@
+[package]
+name = "logger"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+chrono = "0.4"
+lazy_static = "1"
+libc = "0.2"
+libloading = "0.5"
+log = "0.4"
+sentry = "0.17"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+simplelog = "0.7"
+widestring = "0.4"
+winapi = { version = "0.3", features = ["minwindef", "libloaderapi"] }
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"

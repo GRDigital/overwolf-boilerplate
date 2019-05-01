@@ -1,0 +1,1 @@
+git branch -r --merged | egrep -v "(^\*|master|production|staging)" | sed 's/origin\///' | xargs -n 1 git push --delete origin

@@ -1,0 +1,5 @@
+**/*.sass
+src/config.js
+src/client/config.js
+src/server/config.js
+/src/wasm/**/target/

@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+  variables:
+    GIT_SSH_COMMAND: "ssh -i C:/id_rsa -o StrictHostKeyChecking=no"
+  parameter-store:
+     SSH: "build-deploy-private"
+     PFXPASS: "pfx-password"
+
+phases:
+  install:
+    commands:
+      - sh -c "echo '$env:SSH' > C:/id_rsa"
+      - sh -c "ssh-keygen -vvv -y -f C:/id_rsa > C:/id_rsa.pub"
+      - git submodule update --init --recursive
+  pre_build:
+    commands:
+      - copy create-configs-${env:NAME}.js create-configs.js
+      - npm ci --unsafe-perm
+  build:
+    commands:
+      - npm run tool compile -- --client --sign
+      - npm run script compress
+      - scp -i C:/id_rsa -o StrictHostKeyChecking=no public/package.zip root@${env:SCP_TARGET}:${env:PACKAGE_PATH}

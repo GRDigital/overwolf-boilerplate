@@ -1,0 +1,56 @@
+[include]
+src/
+
+[ignore]
+<PROJECT_ROOT>/node_modules/.cache/
+<PROJECT_ROOT>/node_modules/styled-components/
+<PROJECT_ROOT>/plugins/
+<PROJECT_ROOT>/lib/
+<PROJECT_ROOT>/public/
+<PROJECT_ROOT>/ssl/
+<PROJECT_ROOT>/store/
+<PROJECT_ROOT>/webpack.*
+<PROJECT_ROOT>/src/tools/create-configs.js
+<PROJECT_ROOT>/create-configs*
+<PROJECT_ROOT>/extension/bootstrapper.js
+
+[libs]
+decls/
+
+[lints]
+all=off
+deprecated-utility=off
+
+[strict]
+sketchy-null-bool
+sketchy-null-string
+sketchy-null-number
+sketchy-null-mixed
+sketchy-number
+untyped-type-import
+untyped-import
+unclear-type
+unsafe-getters-setters
+unnecessary-optional-chain
+unnecessary-invariant
+deprecated-utility
+deprecated-type
+inexact-spread
+
+[options]
+module.use_strict=true
+module.name_mapper='^~/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.system.node.resolve_dirname=node_modules
+include_warnings=true
+experimental.const_params=true
+module.name_mapper='.*\.\(png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/stubs/Base64Stub.js'
+module.name_mapper.extension='wasm' -> '<PROJECT_ROOT>/stubs/WasmStub.js'
+suppress_type=$FlowTODO
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment= \\(.\\|\n\\)*\\$FlowBug
+suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
+exact_by_default=true
+esproposal.optional_chaining=enable
+
+[version]
+0.114.0

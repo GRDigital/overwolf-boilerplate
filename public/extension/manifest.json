@@ -1,0 +1,98 @@
+{
+	"manifest_version": 1,
+	"type": "WebApp",
+	"meta":{
+		"name":"Boilerplate",
+		"version":"0.0.1",
+		"minimum-overwolf-version": "0.114.0",
+		"author":"GR Digital",
+		"icon": "icon.png",
+		"icon_gray": "icon_gray.png",
+		"launcher_icon": "icon.ico",
+		"description":""
+	},
+	"permissions": [
+		"FileSystem",
+		"Extensions",
+		"Streaming",
+		"DesktopStreaming",
+		"Profile",
+		"GameInfo",
+		"Hotkeys",
+		"Clipboard"
+	],
+	"data": {
+		"start_window": "MainWindow",
+		"windows": {
+			"MainWindow": {
+				"file": "index.html",
+				"transparent": true,
+				"resizable": false,
+				"show_in_taskbar": false,
+				"clickthrough": true,
+				"grab_keyboard_focus": false,
+				"grab_focus_on_desktop": false,
+				"topmost": true,
+				"min_size": { "width": 0, "height": 0 },
+				"max_size": { "width": 8192, "height": 4320 }
+			},
+			"AppWindow": {
+				"file": "empty1.html",
+				"transparent": true,
+				"resizable": false,
+				"show_in_taskbar": true,
+				"block_top_window_navigation": true,
+				"popup_blocker": true,
+				"mute": true,
+				"clickthrough": false,
+				"focus_game_takeover": "ReleaseOnLostFocus",
+				"min_size": { "width": 0, "height": 0 },
+				"max_size": { "width": 8192, "height": 4320 }
+			}
+		},
+		"hotkeys": {
+			"main": {
+				"title": "Open application",
+				"action-type": "custom",
+				"default": "ALT+C"
+			}
+		},
+		"launch_events": [
+			{
+				"event": "GameLaunch",
+				"event_data": {
+					"game_ids": []
+				},
+				"start_minimized": true,
+				"include_launchers": true
+			}
+		],
+		"game_targeting": {
+			"type": "dedicated",
+			"game_ids": []
+		},
+		"game_events": [],
+		"extra-objects": {
+			"unbounded-request": {
+				"file": "unbounded-request.dll",
+				"class": "overwolf.plugins.UnboundedRequest"
+			},
+			"simple-io-plugin": {
+				"file": "simple-io-plugin.dll",
+				"class": "overwolf.plugins.SimpleIOPlugin"
+			},
+			"bootstrapper": {
+				"file": "bootstrapper.dll",
+				"class": "overwolf.plugins.Bootstrapper"
+			},
+			"file-reader-writer": {
+				"file": "file-reader-writer.dll",
+				"class": "overwolf.plugins.FileReaderWriter"
+			},
+			"dll-call": {
+				"file": "dll-call.dll",
+				"class": "overwolf.plugins.DllCall"
+			}
+		}
+	}
+}

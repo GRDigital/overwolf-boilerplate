@@ -1,0 +1,14 @@
+module.exports = {
+	name: "local",
+	dev: true,
+	host: "localtest.pw",
+	ssl: true,
+	useOwAds: false,
+	usePrecompiledTools: false,
+	server: {
+		cert: "ssl\\cert.pem",
+		key: "ssl\\privkey.pem",
+	},
+	client: {
+	},
+};
