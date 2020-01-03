@@ -15,6 +15,7 @@ pub struct ClientConfig {
 #[derive(serde::Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Config {
+	pub appName: String,
 	pub name: String,
 	pub dev: bool,
 	pub host: String,

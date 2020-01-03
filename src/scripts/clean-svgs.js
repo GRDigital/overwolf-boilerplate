@@ -16,13 +16,13 @@ export default (args) => {
 		colouredIcons.forEach((icon) => {
 			console.log(icon);
 			spawn(`svgo --pretty --multipass --config=svgo-keep-colour.yml ${path}/${icon}`);
-			spawn(`svgcleaner.exe --allow-bigger-file --multipass --apply-transform-to-paths --indent tabs ${path}/${icon} ${path}/${icon}`);
+			spawn(`svgcleaner --allow-bigger-file --multipass --apply-transform-to-paths --indent tabs ${path}/${icon} ${path}/${icon}`);
 		});
 
 		icons.forEach((icon) => {
 			console.log(icon);
 			spawn(`svgo --pretty --multipass --config=svgo.yml ${path}/${icon}`);
-			spawn(`svgcleaner.exe --allow-bigger-file --multipass --apply-transform-to-paths --indent tabs ${path}/${icon} ${path}/${icon}`);
+			spawn(`svgcleaner --allow-bigger-file --multipass --apply-transform-to-paths --indent tabs ${path}/${icon} ${path}/${icon}`);
 		});
 	}
 };

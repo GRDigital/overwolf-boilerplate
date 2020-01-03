@@ -1,4 +1,5 @@
 module.exports = {
+	appName: "OverwolfBoilerplate",
 	name: "production",
 	dev: false,
 	host: "<DOMAIN NAME>",

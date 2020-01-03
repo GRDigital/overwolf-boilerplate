@@ -37,7 +37,6 @@ struct CsharpConfig {
 
 #[derive(serde::Deserialize)]
 struct CompileConfig {
-	app_name: String,
 	fonts: String,
 	to_sign: Vec<String>,
 	rust: RustConfig,
@@ -326,7 +325,7 @@ async fn main() -> anyhow::Result<()> {
 		Ok(())
 	});
 
-	cmd!(git clean -dxf -e bundle.js -e extension -e package.zip -e (COMPILE_CONFIG.app_name)-(*APP_VERSION)-(APP_CONFIG.name).opk).current_dir("public").run()?;
+	cmd!(git clean -dxf -e bundle.js -e extension -e package.zip -e (APP_CONFIG.appName)-(*APP_VERSION)-(APP_CONFIG.name).opk).current_dir("public").run()?;
 	if ARGS.with_client {
 		fetch_fonts().await?;
 	}
@@ -348,7 +347,7 @@ async fn main() -> anyhow::Result<()> {
 			codesign()?;
 		}
 
-		cmd!({npx()} bestzip ../(COMPILE_CONFIG.app_name)-(*APP_VERSION)-(APP_CONFIG.name).opk *).current_dir("public/extension").run()?;
+		cmd!({npx()} bestzip ../(APP_CONFIG.appName)-(*APP_VERSION)-(APP_CONFIG.name).opk *).current_dir("public/extension").run()?;
 	}
 
 	server_js.join().expect("server compilation panicked").expect("server compilation failed");

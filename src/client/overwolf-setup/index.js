@@ -15,7 +15,7 @@ const PLAN_ID = 0;
 
 const lock = new AsyncLock();
 
-// Retarded flow:
+// Flow:
 // 1. overwolf.games.onGameInfoUpdated -> react to game process info
 // 2. owHelpers.games.getRunningGameInfo -> fetch current game process info
 // 3. wait for game to be launched
@@ -80,7 +80,6 @@ const setupHotkeys = async () => {
 	});
 };
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 const updateInfo = (info: $FlowTODO) => {
 };
 

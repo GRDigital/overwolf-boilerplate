@@ -5,7 +5,6 @@ import * as R from "ramda";
 import { tryCrash } from "~/helpers/error-handling.macro";
 
 export { default as logger } from "./logger";
-export { handleChange } from "./handle-change";
 
 export const isError = (x: mixed): boolean %checks => x instanceof Error;
 export const isOk = (x: mixed): boolean %checks => !(x instanceof Error);

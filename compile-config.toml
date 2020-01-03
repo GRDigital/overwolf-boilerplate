@@ -1,4 +1,3 @@
-app_name = "OverwolfBoilerplate"
 fonts = "https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,500,700|Roboto+Condensed:400,400i,700,700i|Roboto:400,400i,500,500i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
 to_sign = [
 	"logger.dll",
