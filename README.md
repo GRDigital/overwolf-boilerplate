@@ -1,4 +1,10 @@
-# Prerequisites
+# Overview
+
+This repo is the boilerplate we've used for multiple successful Overwolf apps, ranging from fairly simple to some of the most complex apps on the platform. It showcases updating the app from the server, deploying, logging and ffi with c-style plugin apis.
+
+Since inception this has been for internal use, so it may not be the best to jump in and use off the bat, however, feature requests and bug/issue reports welcome.
+
+## Prerequisites
 1. Windows only
 1. `node` v10+ and `npm` v6+ in PATH
 1. C++ compiler that `node-gyp` understands
@@ -16,7 +22,7 @@
 
 **CAUTION:** `sh`, `bash`, `cygwin` or even `PowerShell` _may_ cause issues. `ConEmu`/`cmder` is fine.
 
-# Setup
+## Setup
 1. Copy `create-configs.js.example` to `create-configs.js` and edit
 1. `npm install`
 1. `npm run tool compile -- --client` - double-dash necessary because `--client` is an argument to the compile script
@@ -25,13 +31,13 @@
 1. Open Overwolf, right click on the tray icon -> `Support` -> `Development Options` -> `Load unpacked extension...` -> open the `public/extension` folder -> `Select folder`
 1. Click `Launch` next to the package that just appeared
 
-# For dev
+## For dev
 * [node.js inspector manager](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj) will help debuggin serverside code.
 * Only the `MainWindow`'s console will be populated with messages.
 * Editing the js code will recompile the bundle and restart the server. Use `=r` while app is in focus to reload or `=q` to close the app.
 * Consult with `npm run script lint eslint` for style consistency and `npm run script lint flow` for type safety (or just `npm run script lint` for both).
 
-# Staging & production
+## Staging & production
 * Make sure the ip and host are correct in `ecosystem.config.js` and `create-configs-*.js`
 * Make sure the names are correct in `tools/compile.rs`, `src/scripts/deploy.js`, `src/scripts/stage.js` and `src/scripts/production.js`
 * A docker image for AWS CodeBuild is provided, but has to be uploaded to AWS image store.
