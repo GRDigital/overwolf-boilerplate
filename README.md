@@ -19,24 +19,26 @@
 # Setup
 1. Copy `create-configs.js.example` to `create-configs.js` and edit
 1. `npm install`
-1. `npm run flow-typed`
-1. `npm run tool compile`
+1. `npm run tool compile -- --client` - double-dash necessary because `--client` is an argument to the compile script
+1. `npm run script flow-typed`
 1. `npm run script dev`
 1. Open Overwolf, right click on the tray icon -> `Support` -> `Development Options` -> `Load unpacked extension...` -> open the `public/extension` folder -> `Select folder`
 1. Click `Launch` next to the package that just appeared
 
 # For dev
-* [redux-devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) extension helps with state debugging.
 * [node.js inspector manager](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj) will help debuggin serverside code.
-* Only the `MainWindow`'s console will be populated with messages. You can copy the url by pressing `Ctrl+D`, copying the url and pasting into a chromium-based browser. This is useful if you want to debug game events since overwolf insists on overlaying the browser on top of the game.
+* Only the `MainWindow`'s console will be populated with messages.
 * Editing the js code will recompile the bundle and restart the server. Use `=r` while app is in focus to reload or `=q` to close the app.
 * Consult with `npm run script lint eslint` for style consistency and `npm run script lint flow` for type safety (or just `npm run script lint` for both).
 
 # Staging & production
 * Make sure the ip and host are correct in `ecosystem.config.js` and `create-configs-*.js`
-* Make sure the names are correct in `src/scripts/deploy.js` and `scr/tools/compile.js`
+* Make sure the names are correct in `tools/compile.rs`, `src/scripts/deploy.js`, `src/scripts/stage.js` and `src/scripts/production.js`
+* A docker image for AWS CodeBuild is provided, but has to be uploaded to AWS image store.
+	* Something like `docker build -t main -m 4g docker && docker tag main:latest <image-uri>:latest && docker push <image-uri>:latest`
 * Create an AWS CodeBuild job
-* TODO: how to configure the codebuild job
+	* TODO: how to configure the codebuild job
 * Establish `git` branches `staging` and `production`
 * Checkout master, make sure it's clean and ready to be merged into `staging`
-* `npm run script stage <semver-bump>` and `npm run script production`
+* `npm run script stage` and `npm run script production <semver-bump>`
+* All the logging done via `logger` (including with plugins) will be redirected to a log file next to Overwolf's app log, all errors will be redirected to Sentry (if set up).
